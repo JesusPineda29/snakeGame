@@ -1,12 +1,15 @@
-setTimeout(function() {
+window.addEventListener('load', () => {
   const modal = document.getElementById('welcomeModal');
   const closeBtn = document.getElementById('closeModalBtn');
-  modal.classList.remove('hidden');
 
-  closeBtn.addEventListener('click', () => {
-    modal.classList.add('hidden');
-  });
-}, 500);
+  if (modal && closeBtn) {
+    modal.classList.remove('hidden');
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+  }
+});
 
 
 // Variables globales 
