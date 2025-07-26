@@ -1,0 +1,50 @@
+body {
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    background-color: #0f0f0f;
+    color: #00ff00;
+}
+
+.retro-glow {
+    text-shadow: 0 0 5px #00ff00, 0 0 8px #00ff00;
+}
+
+.retro-box {
+    background-color: #1a1a1a;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.retro-button {
+    background-color: #2a2a2a;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.retro-button:hover {
+    background-color: #00ff00;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+}
+
+.amber-text {
+    color: #ffb000;
+    text-shadow: 0 0 3px #ffb000;
+}
+
+.cyan-text {
+    color: #00ffff;
+    text-shadow: 0 0 3px #00ffff;
+}
+
+.red-text {
+    color: #ff0000;
+    text-shadow: 0 0 3px #ff0000;
+}
+
+#gameCanvas {
+    background-color: #000000;
+    border: 3px solid #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+}

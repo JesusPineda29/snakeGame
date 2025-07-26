@@ -6,89 +6,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Snake</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
+</head>
 <!-- ✅ Aplicamos flex column en el body -->
 
-<body class="bg-green-800 text-white flex flex-col min-h-screen">
-
+<body class="flex flex-col min-h-screen">
   <!-- ✅ Este div crece para empujar el footer abajo -->
-<div class="flex-grow flex flex-col items-center justify-center px-6 py-8">
-  <h1 class="text-5xl font-bold mb-4 text-center">🐍 SNAKE GAME</h1>
-  <p class="text-lg mb-6 text-center">¡El clásico juego de la serpiente!</p>
-
-  <div class="flex flex-col md:flex-row bg-black p-6 md:p-8 rounded-lg shadow-lg gap-8 items-center justify-center">
-
-    <!-- Sección de puntuación + canvas -->
-    <div class="flex flex-col items-center">
-      <div class="flex justify-between items-center w-full mb-4 px-4">
-        <div class="text-yellow-400 text-xl font-bold">
-          Puntos: <span id="score">0</span>
+  <div class="flex-grow flex flex-col items-center justify-center px-6 py-8">
+    <h1 class="text-5xl font-bold mb-4 text-center retro-glow">🐍 SNAKE GAME</h1>
+    <p class="text-lg mb-6 text-center cyan-text">¡El clásico juego de la serpiente!</p>
+    <div class="flex flex-col md:flex-row retro-box p-6 md:p-8 rounded-lg gap-8 items-center justify-center">
+      <!-- Sección de puntuación + canvas -->
+      <div class="flex flex-col items-center">
+        <div class="flex justify-between items-center w-full mb-4 px-4">
+          <div class="amber-text text-xl font-bold">
+            Puntos: <span id="score">0</span>
+          </div>
+          <div class="red-text text-xl font-bold">
+            Record: <span id="highScore">0</span>
+          </div>
         </div>
-        <div class="text-red-400 text-xl font-bold">
-          Record: <span id="highScore">0</span>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+      </div>
+      <!-- Sección de controles e instrucciones -->
+      <div class="flex flex-col items-center gap-4 max-w-sm">
+        <div class="text-center">
+          <button id="startBtn" class="retro-button px-8 py-3 rounded-lg font-bold text-lg mb-2">
+            🎮 EMPEZAR JUEGO
+          </button>
+          <button id="pauseBtn" class="retro-button px-8 py-3 rounded-lg font-bold text-lg hidden">
+            ⏸️ PAUSAR
+          </button>
+        </div>
+        <div class="text-center text-sm px-2">
+          <p class="cyan-text">🎯 Come las manzanas rojas para crecer</p>
+          <p class="cyan-text">⌨️ Usa las flechas del teclado para moverte</p>
+          <p class="amber-text">⚠️ ¡No choques con las paredes o contigo mismo!</p>
+        </div>
+        <div id="gameOverScreen" class="hidden text-center p-5 rounded-lg w-full"
+          style="background-color: #2a0000; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);">
+          <h2 class="text-3xl font-bold red-text mb-2">💀 GAME OVER 💀</h2>
+          <p class="text-xl mb-2">Tu puntuación: <span id="finalScore" class="amber-text">0</span></p>
+          <p class="text-lg mb-4 cyan-text" id="newRecordMsg" style="display: none;">🎉 ¡NUEVO RECORD!</p>
         </div>
       </div>
-      <canvas id="gameCanvas" width="400" height="400" class="bg-gray-900 border-2 border-white"></canvas>
-    </div>
-
-    <!-- Sección de controles e instrucciones -->
-    <div class="flex flex-col items-center gap-4 max-w-sm">
-
-      <div class="text-center">
-        <button id="startBtn" class="bg-green-600 hover:bg-green-700 px-8 py-3 rounded-lg font-bold text-lg mb-2">
-          🎮 EMPEZAR JUEGO
-        </button>
-        <button id="pauseBtn" class="bg-yellow-600 hover:bg-yellow-700 px-8 py-3 rounded-lg font-bold text-lg hidden">
-          ⏸️ PAUSAR
-        </button>
-      </div>
-
-      <div class="text-center text-sm text-white px-2">
-        <p>🎯 Come las manzanas rojas para crecer</p>
-        <p>⌨️ Usa las flechas del teclado para moverte</p>
-        <p>⚠️ ¡No choques con las paredes o contigo mismo!</p>
-      </div>
-
-      <div id="gameOverScreen" class="hidden text-center bg-red-800 p-5 rounded-lg w-full">
-        <h2 class="text-3xl font-bold text-red-300 mb-2">💀 GAME OVER 💀</h2>
-        <p class="text-xl mb-2">Tu puntuación: <span id="finalScore">0</span></p>
-        <p class="text-lg mb-4 text-yellow-300" id="newRecordMsg" style="display: none;">🎉 ¡NUEVO RECORD!</p>
-
-      </div>
-      
     </div>
   </div>
-</div>
-
-
- 
-  <footer class="bg-green-600 text-white py-8">
+  <footer style="background-color: #1a1a1a; border-top: 2px solid #00ff00;" class="py-8">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
       <div class="text-center sm:text-left">
-        <p class="text-xl font-bold">Snake Game</p>
-        <p class="text-lg">Desarrollado por <strong>Jesús Pineda</strong></p>
+        <p class="text-xl font-bold retro-glow">Snake Game</p>
+        <p class="text-lg cyan-text">Desarrollado por <strong>Jesús Pineda</strong></p>
       </div>
       <nav class="flex flex-wrap justify-center gap-6">
         <button onclick="window.open('https://jesus-pineda-portafolio.netlify.app', '_blank')"
-          class="flex items-center gap-2 bg-red-700 hover:bg-red-800 px-4 py-2 rounded-lg transition-colors duration-200 border border-red-700 hover:border-red-400">
+          class="flex items-center gap-2 retro-button px-4 py-2 rounded-lg transition-colors duration-200">
           🌐 <span>Sitio Web</span>
         </button>
         <button onclick="window.open('https://www.linkedin.com/in/jesús-pineda-630a3b300', '_blank')"
-          class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors duration-200 border border-blue-500 hover:border-blue-400">
+          class="flex items-center gap-2 retro-button px-4 py-2 rounded-lg transition-colors duration-200">
           🔗 <span>LinkedIn</span>
         </button>
         <button onclick="window.open('https://github.com/JesusPineda29', '_blank')"
-          class="flex items-center gap-2 bg-gray-600 hover:bg-gray-800 px-4 py-2 rounded-lg transition-colors duration-200 border border-gray-600 hover:border-gray-400">
+          class="flex items-center gap-2 retro-button px-4 py-2 rounded-lg transition-colors duration-200">
           🐱 <span>GitHub</span>
         </button>
       </nav>
-      <div class="text-center sm:text-right">
+      <div class="text-center sm:text-right amber-text">
         © 2025 - Todos los derechos reservados
       </div>
     </div>
   </footer>
-
   <script src="app.js"></script>
 </body>
 
