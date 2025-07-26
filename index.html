@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-green-800 text-white">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <h1 class="text-5xl font-bold mb-2">🐍 MI SNAKE GAME</h1>
+        <p class="text-lg mb-4">¡El clásico juego de la serpiente!</p>
+
+        <div id="gameOverScreen" class="hidden mt-6 text-center bg-red-800 p-6 rounded-lg mb-5">
+            <h2 class="text-4xl font-bold text-red-300 mb-2">💀 GAME OVER</h2>
+            <p class="text-xl mb-2">Tu puntuación: <span id="finalScore">0</span></p>
+            <p class="text-lg mb-4 text-yellow-300" id="newRecordMsg" style="display: none;">🎉 ¡NUEVO RECORD!</p>
+            <button id="restartBtn" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded font-bold">
+                🔄 JUGAR DE NUEVO
+            </button>
+        </div>
+
+        <div class="bg-black p-4 rounded-lg shadow-lg">
+            <div class="flex justify-between items-center mb-4">
+                <div class="text-yellow-400 text-xl font-bold">
+                    Puntos: <span id="score">0</span>
+                </div>
+                <div class="text-red-400 text-xl font-bold">
+                    Record: <span id="highScore">0</span>
+                </div>
+            </div>
+
+            <canvas id="gameCanvas" width="400" height="400" class="bg-gray-900 border-2 border-white"></canvas>
+
+            <div class="mt-4 text-center">
+                <button id="startBtn" class="bg-green-600 hover:bg-green-700 px-8 py-3 rounded-lg font-bold text-lg">
+                    🎮 EMPEZAR JUEGO
+                </button>
+                <button id="pauseBtn"
+                    class="bg-yellow-600 hover:bg-yellow-700 px-8 py-3 rounded-lg font-bold text-lg hidden">
+                    ⏸️ PAUSAR
+                </button>
+            </div>
+
+            <div class="mt-4 text-center text-sm">
+                <p>🎯 Come las manzanas rojas para crecer</p>
+                <p>⌨️ Usa las flechas del teclado para moverte</p>
+                <p>⚠️ ¡No choques con las paredes o contigo mismo!</p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
