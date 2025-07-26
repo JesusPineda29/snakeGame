@@ -1,4 +1,16 @@
+setTimeout(function() {
+  const modal = document.getElementById('welcomeModal');
+  const closeBtn = document.getElementById('closeModalBtn');
+  modal.classList.remove('hidden');
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+}, 500);
+
+
 // Variables globales 
+
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
@@ -219,7 +231,3 @@ restartBtn.addEventListener('click', startGame);
 // Dibujar estado inicial
 draw();
 
-// // Mensaje de bienvenida 
-// setTimeout(function() {
-//     alert('¡Bienvenido a mi Snake Game! 🐍\n\nInstrucciones:\n- Usa las flechas para mover\n- Come las manzanas rojas\n- No choques con las paredes\n- Espacio para pausar\n- ¡Diviértete!');
-// }, 500);
